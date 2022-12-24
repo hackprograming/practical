@@ -273,3 +273,60 @@ function count_digit($number)
 }
 ?>
 ```
+## Q. 4) : Write a PHP script for the following: Design a form having a text box and a drop down list containing any 3 separators(e.g. #, |, %, @, ! orcomma) accept a strings from the user and also a separator.a. Splitthe string into separate words using the given separator. b. Replace all the occurrences of separator in the given string with some other separator.c. Find the last word in the given string(Use strrstr() function). (Incomplit-program)
+
+```
+<html>
+
+<form  method='post'>
+
+<input type="text" name="string" />
+<select id="separator" name="separator">                      
+<option value="0">--Select separator--</option>
+<option value="1">#</option>
+<option value="2">|</option>
+<option value="3">%</option>
+<br /><br/ ><br/ >
+<br><input type="radio" name="radio" value="op1"> <b>Splitthe string into separate words using the given separator</b>  <br/ ><br/ >
+<input type="radio" name="radio" value="op2"><b>Replace all the occurrences of separator in the given string with some other separator</b> <br/ ><br/ >
+<input type="radio" name="radio" value="op3"><b>Find the last word in the given string(Use strrstr() function). <b/><br/ ><br/ >
+
+<input type="submit" name="submit" value="Submit" />
+</form>
+
+</body>
+
+</html>
+<?php
+if(isset($_POST['submit']))
+{
+    $seprator=$_POST['separator'];
+    $string=$_POST['string'];
+    if(!empty($_POST['radio'])) {
+        $option= $_POST['radio'];
+       }
+       if($option=="op1")
+       {
+        option1($seprator,$string);
+        //$results=explode($seprator,$string);
+        //foreach($results as $result){
+        //  echo $result;
+        //}
+       
+       }
+
+     
+
+  
+}
+function option1($seprator,$string)
+{
+  
+    //var_dump(explode('$seprator', $string ) );
+   //print_r(explode($seprator,$string,3));
+   $chars = preg_split('*', $string, -1, PREG_SPLIT_NO_EMPTY);
+   print_r($chars);
+}
+?>
+
+```
